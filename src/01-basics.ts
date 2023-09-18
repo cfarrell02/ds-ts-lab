@@ -16,7 +16,7 @@ const friend1 : Friend = {
     interests: ['Music', 'Sport']
   };
   const friend3 : Friend = {
-    name: "Jimmy O Brien",
+    name: "Patti Burke",
     phone: "086-12345",
     age: 31
   }
