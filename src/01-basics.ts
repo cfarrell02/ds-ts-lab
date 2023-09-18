@@ -1,8 +1,5 @@
-interface Friend {
-    name: string;
-    phone: string;
-    age: number
-}
+import {Friend, Colleague, ColleagueHistory } from './myTypes'
+
 
 
 
@@ -18,20 +15,12 @@ const friend1 = {
     age: 31,
   };
   
-  const friends = [friend1, friend2];
-  console.log(friends[1]);
+  export const friends = [friend1, friend2];
+//   console.log(friends[1]);
   
   //   -------------------
 
 
-    interface Colleague {
-        name: string;
-        department: string;
-        contact: {
-            email: string;
-            extension: number;
-        }
-    };
 
   const colleague1 = {
     name: "Ralph Graham",
@@ -59,18 +48,15 @@ const friend1 = {
       extension: 125,
     },
   };
-  
+
   export const colleagues : ColleagueHistory = {
     current: [colleague1, colleague2, colleague3],
     former: [],
   };
   
-  console.log(colleagues.current[0]);
+//   console.log(colleagues.current[0]);
   
 
-  interface ColleagueHistory {
-    current: Colleague[],
-    former: Colleague[]
-  }
+
 
   
