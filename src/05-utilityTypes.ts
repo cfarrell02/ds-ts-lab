@@ -50,16 +50,7 @@ function intersection(
     const colleague = colleagues.find((col) => col.name === friend.name);
     if (colleague) {
       // Colleague is also a Friend
-      let overlap:Overlap = {
-          name: colleague.name,
-          age: friend.age,
-          phone: friend.phone,
-          department: colleague.department,
-          contact: {
-              email: colleague.contact.email,
-              extension: colleague.contact.extension,
-          },
-      }
+      let overlap:Overlap = { ...friend, ...colleague };
       result.push(overlap)
       console.log(overlap)
     }
