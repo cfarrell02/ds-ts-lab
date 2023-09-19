@@ -73,5 +73,7 @@ import {
   function getBuddyListFriends (list : BuddyList) : Friend[]{
         return list.members.filter((buddy) => "phone" in buddy) as Friend[]
   }
+  console.log(myFootballBuddies)
 
+   console.log('Friends in buddy list')
     console.log(getBuddyListFriends(myFootballBuddies))

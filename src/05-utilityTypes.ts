@@ -39,18 +39,33 @@ function secureFindFriends(
 }
 console.log(generateEventPass(colleagues.current[0]));
 
-function intersection(friends: Friend[], colleagues: Colleague[]): (Friend & Colleague)[] {
-    const result: (Friend & Colleague)[] = [];
-  
-    for (const friend of friends) {
-      const colleague = colleagues.find((col) => col.name === friend.name);
-      if (colleague) {
-        // Merge friend and colleague properties
-        result.push({ ...friend, ...colleague });
+type Overlap = Friend & Colleague;
+
+function intersection(
+  friends: Friend[],
+  colleagues: Colleague[]
+): Overlap[] {
+  let result:Overlap[] = []
+  friends.reduce((res, friend) => {
+    const colleague = colleagues.find((col) => col.name === friend.name);
+    if (colleague) {
+      // Colleague is also a Friend
+      let overlap:Overlap = {
+          name: colleague.name,
+          age: friend.age,
+          phone: friend.phone,
+          department: colleague.department,
+          contact: {
+              email: colleague.contact.email,
+              extension: colleague.contact.extension,
+          },
       }
+      result.push(overlap)
+      console.log(overlap)
     }
-  
-    return result;
-  }
+    return res;
+  }, result);
+  return result;
+}
   console.log('Final result')
   console.log(intersection(friends, colleagues.current));
